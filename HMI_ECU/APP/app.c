@@ -82,7 +82,7 @@ static void APP_getPassword(const uint8 const * a_user_prompt)
 		{
 			/*store the ascii-code of each number in a global variable*/
 			g_passwordInput[i] = ZERO_ASCII_CODE + key;
-			LCD_displayCharacter('*');   /* display an asterisk (*) for each digit entered */
+			LCD_characterFade(key + ZERO_ASCII_CODE, PASSWORD_CHARACHER); /* display an asterisk (*) for each digit entered */
 			i++;
 		}
 		_delay_ms(PRESS_TIME); /*delay for button press*/
@@ -138,8 +138,6 @@ static APP_PasswordStatus APP_passwordEnquire(void)
 	/*get the received status from UART*/
 	received_compare_result = USART_receiveByte();
 
-	//	LCD_intgerToString(received);
-
 	/*if the two entered passwords are matching*/
 	if(received_compare_result == MATCHING_PASSWORD_BYTE)
 	{
@@ -183,9 +181,10 @@ void APP_welcomeScreen(void)
 	LCD_moveCursor(0, 6);
 	LCD_writeString("DOOR SECURITY SYSTEM", SCREEN_WRITE_DELAY);
 	LCD_moveCursor(1, 10);
-	LCD_writeString("By: Omar Hafz", SCREEN_WRITE_DELAY);
+	_delay_ms(750);
+	LCD_writeString("By: Omar Amr", SCREEN_WRITE_DELAY);
 	LCD_sendCommand(LCD_CURSOR_OFF);
-	_delay_ms(1000);
+	_delay_ms(1250);
 	LCD_clearScreen();
 }
 

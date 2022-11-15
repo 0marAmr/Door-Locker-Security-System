@@ -17,7 +17,7 @@ int main(void)
 	/*variable to store the user choice */
 	uint8 choice = 0;
 
-	/*Peripherals configurations*/
+	/********** Peripherals configurations **********/
 	USART_ConfigType uart_config =
 	{
 			.usart_baud_rate = 9600,
@@ -46,7 +46,6 @@ int main(void)
 
 	/*Display welcome message at program start.*/
 	APP_welcomeScreen();
-
 	/*Set a new password at the beginning of the program*/
 	APP_setNewPassword();
 
@@ -54,6 +53,7 @@ int main(void)
 	{
 		/*Get user choice*/
 		choice = APP_mainMenu();
+
 		switch (choice)
 		{
 		case DOOR_OPEN:

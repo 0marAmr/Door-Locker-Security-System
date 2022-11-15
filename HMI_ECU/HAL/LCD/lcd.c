@@ -1,4 +1,4 @@
- /******************************************************************************
+/******************************************************************************
  *
  * [FILE NAME]:     lcd.c
  *
@@ -15,6 +15,8 @@
 #include <util/delay.h>
 #include <stdlib.h>
 
+static  uint8 g_rowNum = 0;
+static  uint8 g_colNum = 0;
 
 /*
  * Description :
@@ -112,6 +114,9 @@ void LCD_displayCharacter(uint8 data){
 	_delay_ms(1);
 	GPIO_writePin(LCD_E_PORT_ID, LCD_E_PIN_ID, LOGIC_LOW);
 	_delay_ms(1);
+
+	/*increment cursor position*/
+	g_colNum++;
 }
 
 /*
@@ -125,6 +130,17 @@ void LCD_displayString(const uint8 * strConst){
 	}
 }
 
+/*
+ * Description :
+ * display a given data briefly, then replace it with a given symbol
+ */
+void LCD_characterFade(uint8 a_data, uint8 a_symbol){
+	LCD_displayCharacter(a_data);
+	g_colNum--;
+	_delay_ms(CHARACTER_FADE_DELAY);
+	LCD_moveCursor(g_rowNum, g_colNum);
+	LCD_displayCharacter(a_symbol);
+}
 /*
  * Description :
  * write the required string on the screen with delay effect
@@ -161,6 +177,11 @@ void LCD_moveCursor(uint8 row, uint8 col){
 	}
 	/* Move the LCD cursor to this specific address */
 	LCD_sendCommand(LCD_SET_CURSOR_LOCATION | lcd_location_address);
+
+	/*change cursor position*/
+	g_rowNum = row;
+	g_colNum = col;
+
 }
 
 /*

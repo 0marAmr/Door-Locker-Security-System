@@ -29,9 +29,10 @@
 #define THIRD_ROW_START_ADDRESS 	0X10
 #define FOURTH_ROW_START_ADDRESS 	0X50
 
-#define BINARY_RADIX		2
-#define DECIMAL_RADIX		10
-#define HEXADECIMAL_RADIX	16
+#define BINARY_RADIX			2
+#define DECIMAL_RADIX			10
+#define HEXADECIMAL_RADIX		16
+#define CHARACTER_FADE_DELAY	350
 
 #if((LCD_DATA_BITS_MODE != 4) && (LCD_DATA_BITS_MODE != 8))
 
@@ -107,6 +108,12 @@ void LCD_displayCharacter(uint8 Data);
  */
 void LCD_displayString(const uint8 * strConst);
 
+
+/*
+ * Description :
+ * display a given data briefly, then replace it with a given symbol
+ */
+void LCD_characterFade(uint8 a_data, uint8 a_symbol);
 /*
  * Description :
  * write the required string on the screen with delay effect

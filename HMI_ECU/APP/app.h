@@ -29,13 +29,14 @@
 #define MATCHING_PASSWORD_BYTE		0xFF	/*byte received from CONTROL ECU when password is matching*/
 #define UNMATCHING_PASSWORD_BYTE	0x00	/*byte received from CONTROL ECU when password not matching*/
 #define ZERO_ASCII_CODE				48 		/*ascii-code of number 0*/
-#define PRESS_TIME					350
+#define PRESS_TIME					150
 #define MOTOR_ROTATION_DELAY		15000	/*time taken for the motor to open/close the door*/
 #define DOOR_OPEN_TIME				3000	/*time for which the door is left open*/
 #define MAX_WRONG_PASSWORDS			3		/*Allowed number of wrong passwords before alarm triggers*/
 #define TIMER1_COMPARE_VALUE_7SEC	58594	/*compare value for timer1 to tick every 7.5 seconds*/
 #define TIMER1_COMPARE_VALUE_3SEC	23438	/*compare value for timer1 to tick every 3 seconds*/
 #define SCREEN_WRITE_DELAY			40
+#define PASSWORD_CHARACHER			'*'
 
 /*******************************************************************************
  *                               Types Declaration                             *
