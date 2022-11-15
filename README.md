@@ -4,7 +4,7 @@ Implemented via **AVR atmega32** MCU with **8 MHz** internal clock frequency.
 
 >### Project Description
 
-* **The door is unlocked using a password entered via a keypad:**
+* **The door is unlocked using a password entered via a keypad:** <br>
 &emsp; <i>i. The door opens by rotating the DC motor Anti-clockwise for 15 seconds.<br>
 &emsp;    ii. It is then held open for 3 seconds.<br>
 &emsp;    iii. Then it is closed by rotating the DC motor clockwise for 15 seconds.<br> </i>
@@ -38,7 +38,7 @@ Layered Model            |  Layered Model Detailed
   
 >### How to simulate
 
-* Clone the project repo via `git clone https://github.com/0marAmr/Fan-Control-System`.
+* Clone the project repo via `git clone https://github.com/0marAmr/Door-Locker-Security-System`.
 * Open command prompt in the project directory.
 * Run `make compile` to compile project files.
 * Open ***project_simulation*** file found in ***simulation*** directory.
